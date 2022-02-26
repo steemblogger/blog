@@ -119,7 +119,7 @@ class BlogBuilder(SteemReader):
             f.write(content)
 
         # write about MD files
-        filename = os.path.join(folder, "{}_{}.md".format("2014-01-01", permlink))
+        filename = os.path.join(folder, "{}_{}.md".format("2014-01-01", "about"))
         with open(filename, "w", encoding="utf-8") as f:
             f.write('''# SteemBlogger
 Read more at [Website](https://steemblogger.github.io/).
