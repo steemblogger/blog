@@ -24,7 +24,9 @@ jobs:
       run: |
         pip install pipenv
         pip install invoke
-        bash .travis/_install.sh
+        pip install beem unicodecsv pandas bs4 markdown zmail
+        npm install -g hexo-cli
+        npm install
     - name: Run Commands
       env:
         GITHUB_PAT: ${{ secrets.ALL_GH_PAT }}
