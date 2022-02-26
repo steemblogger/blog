@@ -23,11 +23,7 @@ jobs:
     - name: Install dependencies
       run: |
         git submodule update --init --recursive
-        pip install pipenv
-        pip install invoke
-        pip install beem unicodecsv pandas bs4 markdown zmail
-        npm install -g hexo-cli
-        npm install
+        bash .travis/_install.sh
     - name: Build
       env:
         GITHUB_PAT: ${{ secrets.ALL_GH_PAT }}
