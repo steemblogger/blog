@@ -22,6 +22,7 @@ jobs:
         python-version: "3.7"
     - name: Install dependencies
       run: |
+        git submodule update --init --recursive
         pip install pipenv
         pip install invoke
         pip install beem unicodecsv pandas bs4 markdown zmail
