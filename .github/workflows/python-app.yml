@@ -27,7 +27,7 @@ jobs:
         pip install beem unicodecsv pandas bs4 markdown zmail
         npm install -g hexo-cli
         npm install
-    - name: Run Commands
+    - name: Build
       env:
         GITHUB_PAT: ${{ secrets.ALL_GH_PAT }}
         STEEM_ACCOUNTS: jackzeng6666
@@ -40,4 +40,24 @@ jobs:
         TRAVIS_BRANCH: master
       run: |
         bash .travis/_build.sh
-        bash .travis/_deploy.sh
+    - name: Deploy
+      env:
+        GITHUB_PAT: ${{ secrets.ALL_GH_PAT }}
+        STEEM_ACCOUNTS: jackzeng6666
+        GIT_USERNAME: steemblogger
+        GIT_EMAIL: hello@rdpstudio.top
+        DURATION: 7
+        DEBUG: true
+        BLOG_REPO: steemblogger/steemblogger.github.io
+        API_NODE: https://api.steemit.com
+        TRAVIS_BRANCH: master
+      run: |
+        git clone --depth 1 --branch master --single-branch https://${GITHUB_PAT}@github.com/${BLOG_REPO}.git site
+        cd site
+        cp -r ../public/* ./
+        ls
+        NOW=$(date +"%Y-%m-%d %H:%M:%S %z")
+        git add --all *
+        git commit -m "Site updated: ${NOW}" || true
+        git push -q origin master
+        
