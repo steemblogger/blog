@@ -2,10 +2,7 @@
 
 set -e
 
-[ -z "${GITHUB_PAT}" ] && exit 0
-[ "${TRAVIS_BRANCH}" != "master" ] && exit 0
-
-pip install beem unicodecsv pandas bs4 markdown zmail
+pip install beem unicodecsv pandas bs4 markdown zmail invoke
 
 # install hexo commands
 npm install -g hexo-cli
