@@ -7,8 +7,6 @@ set -e
 
 git config --global user.email "${GIT_EMAIL}"
 git config --global user.name "${GIT_USERNAME}"
-# deploy site to repo
-git clone --depth 1 --branch master --single-branch https://${GITHUB_PAT}@github.com/${BLOG_REPO}.git site
 cd site
 cp -r ../public/* ./
 if [ -d "/_posts/" ];then
