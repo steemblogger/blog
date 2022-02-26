@@ -18,7 +18,7 @@ from blog.message import get_message
 
 BLOG_ORGANIZATION = "steemblogger"
 BLOG_AVATAR = "https://avatars.githubusercontent.com/u/100458639?s=200&v=4"
-BLOG_FAVICON = "https://www.easyicon.net/api/resizeApi.php?id=1185564&size=32"
+BLOG_FAVICON = "https://avatars.githubusercontent.com/u/100458639?s=200&v=4"
 
 CONFIG_FILE = "_config.yml"
 CONFIG_THEME_FILE = "_config.theme.yml"
@@ -101,6 +101,7 @@ class BlogBuilder(SteemReader):
             category = c.get_tags()[0]
         except:
             category = "unknown"
+        print(c.get_tags())
         thumbnail = self._yaml_compatible(c.get_pic_url(), "")
         url = c.get_url()
 
