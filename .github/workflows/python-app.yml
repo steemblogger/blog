@@ -34,7 +34,7 @@ jobs:
     - name: Build
       env:
         GITHUB_PAT: ${{ secrets.ALL_GH_PAT }}
-        STEEM_ACCOUNTS: jackzeng6666,ericet
+        STEEM_ACCOUNTS: jackzeng6666
         GIT_USERNAME: steemblogger
         GIT_EMAIL: hello@rdpstudio.top
         DURATION: 7
