@@ -23,6 +23,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install pipenv
+        pip install invoke
         bash .travis/_install.sh
     - name: Run Commands
       env:
