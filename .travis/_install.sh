@@ -11,3 +11,7 @@ pip install beem unicodecsv pandas bs4 markdown zmail
 npm install -g hexo-cli
 npm install
 
+cd themes/icarus
+npm install
+cd ../..
+
