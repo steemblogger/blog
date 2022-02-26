@@ -20,14 +20,13 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: "3.7"
-    - name: Set up Nodejs 16
+    - name: Set up Nodejs Stable
       uses: actions/setup-node@v2
       with:
-        node-version: 16
+        node-version: stable
     - name: Install dependencies
       run: |
-        rm -rf themes/icarus
-        git clone https://github.com/ppoffice/hexo-theme-icarus themes/icarus
+        git submodule update --init --recursive
         bash .travis/_install.sh
     - name: Build
       env:
