@@ -10,7 +10,7 @@ git config --global user.name "${GIT_USERNAME}"
 cd site
 cp -r ../public/* ./
 if [ -d "/_posts/" ];then
-  rm -rf _posts
+  git rm -r -f --ignore-unmatch _posts/
 fi
 cp -r ../.source/* ./.source/
 ls
