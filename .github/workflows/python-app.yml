@@ -26,7 +26,8 @@ jobs:
         node-version: 16
     - name: Install dependencies
       run: |
-        git submodule update --init --recursive
+        rm -rf themes/icarus
+        git clone https://github.com/ppoffice/hexo-theme-icarus themes/icarus
         bash .travis/_install.sh
     - name: Build
       env:
