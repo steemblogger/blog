@@ -102,7 +102,7 @@ class BlogBuilder(SteemReader):
         except:
             category = "unknown"
         print(c.get_tags())
-        thumbnail = self._yaml_compatible(c.get_pic_url(), "")
+        thumbnail = self._yaml_compatible(c.get_pic_url(), "https://steemitimages.com/2048x512/https://cdn.steemitimages.com/DQmVirXX1FZkPrdCojynndRtvoyPkHqwCtZ48Y9BArgb4AC/20140708050046711.jpg.270.jpg")
         url = c.get_url()
 
         # build content with template
