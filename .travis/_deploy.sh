@@ -11,6 +11,7 @@ git config --global user.name "${GIT_USERNAME}"
 git clone --depth 1 --branch master --single-branch https://${GITHUB_PAT}@github.com/${BLOG_REPO}.git site
 cd site
 cp -r ../public/* ./
+rm -rf _posts
 cp -r ../.source/* ./.source/
 ls
 NOW=$(date +"%Y-%m-%d %H:%M:%S %z")
