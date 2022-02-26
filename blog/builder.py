@@ -16,8 +16,8 @@ from utils.system.date import get_uct_time_str
 from blog.message import get_message
 
 
-BLOG_ORGANIZATION = "steemblog"
-BLOG_AVATAR = "https://avatars0.githubusercontent.com/u/50857551?s=200&v=4"
+BLOG_ORGANIZATION = "steemblogger"
+BLOG_AVATAR = "https://avatars.githubusercontent.com/u/100458639?s=200&v=4"
 BLOG_FAVICON = "https://www.easyicon.net/api/resizeApi.php?id=1185564&size=32"
 
 CONFIG_FILE = "_config.yml"
@@ -97,7 +97,10 @@ class BlogBuilder(SteemReader):
         date_str = post.json()["created"]
         date = date_str.replace('T', ' ')
         tags = "\n".join(["- {}".format(tag) for tag in c.get_tags()])
-        category = c.get_tags()[0]
+        try:
+            category = c.get_tags()[0]
+        except:
+            category = "unknown"
         thumbnail = self._yaml_compatible(c.get_pic_url(), "")
         url = c.get_url()
 
