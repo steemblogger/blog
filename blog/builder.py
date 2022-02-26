@@ -101,7 +101,7 @@ class BlogBuilder(SteemReader):
             category = c.get_tags()[0]
         except:
             category = "unknown"
-        print(c.get_tags())
+        logger.debug(c.get_tags())
         thumbnail = self._yaml_compatible(c.get_pic_url(), "https://steemitimages.com/2048x512/https://cdn.steemitimages.com/DQmVirXX1FZkPrdCojynndRtvoyPkHqwCtZ48Y9BArgb4AC/20140708050046711.jpg.270.jpg")
         url = c.get_url()
 
@@ -115,7 +115,15 @@ class BlogBuilder(SteemReader):
         # write into MD files
         filename = os.path.join(folder, "{}_{}.md".format(date_str.split('T')[0], permlink))
         with open(filename, "w", encoding="utf-8") as f:
+            logger.debug(content)
             f.write(content)
+
+        # write about MD files
+        filename = os.path.join(folder, "{}_{}.md".format("2014-01-01", permlink))
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write('''# SteemBlogger
+Read more at [Website](https://steemblogger.github.io/).
+''')
 
         logger.info("Download post [{}] into file {}".format(title, filename))
 
