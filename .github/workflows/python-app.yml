@@ -1,0 +1,42 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python application
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 21 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.6"
+    - name: Install dependencies
+      run: |
+        pip install pipenv
+        bash .travis/_install.sh
+    - name: Run Commands
+      env:
+        GITHUB_PAT: ${{ secrets.ALL_GH_PAT }}
+        STEEM_ACCOUNTS: jackzeng6666
+        GIT_USERNAME: steemblogger
+        GIT_EMAIL: hello@rdpstudio.top
+        DURATION: 7
+        DEBUG: false
+        BLOG_REPO: steemblogger/steemblogger.github.io
+        API_NODE: https://api.steemit.com
+      run: |
+        bash .travis/_build.sh
+        bash .travis/_deploy.sh
