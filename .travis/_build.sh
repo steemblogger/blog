@@ -8,6 +8,11 @@ set -e
 git config --global user.email "${GIT_EMAIL}"
 git config --global user.name "${GIT_USERNAME}"
 
+git clone --depth 1 --branch master --single-branch https://${GITHUB_PAT}@github.com/${BLOG_REPO}.git site
+if [ -d "./site/.source/" ];then
+  cp -r ./site/.source/* ./.source/
+fi
+
 invoke blog.build-all -h github --production
 
 # if it's cron job, deploy to netlify in the same time
