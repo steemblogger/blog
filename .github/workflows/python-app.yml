@@ -34,6 +34,7 @@ jobs:
         DEBUG: true
         BLOG_REPO: steemblogger/steemblogger.github.io
         API_NODE: https://api.steemit.com
+        TRAVIS_BRANCH: master
       run: |
         bash .travis/_build.sh
         bash .travis/_deploy.sh
