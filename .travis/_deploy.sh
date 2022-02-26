@@ -11,10 +11,12 @@ git config --global user.name "${GIT_USERNAME}"
 git clone --depth 1 --branch master --single-branch https://${GITHUB_PAT}@github.com/${BLOG_REPO}.git site
 cd site
 cp -r ../public/* ./
-rm -rf _posts
+if [ -d "/_posts/" ];then
+  rm -rf _posts
+fi
 cp -r ../.source/* ./.source/
 ls
 NOW=$(date +"%Y-%m-%d %H:%M:%S %z")
-git add --all *
+git add .
 git commit -m "Site updated: ${NOW}" || true
 git push -q origin master
