@@ -130,7 +130,7 @@ toc: true
 position: 9999
 date: 2014-01-01 10:18:33
 categories:
-- dtube
+- steemblogger
 tags:
 - steemblogger
 thumbnail: 'https://steemitimages.com/2048x512/https://cdn.steemitimages.com/DQmVirXX1FZkPrdCojynndRtvoyPkHqwCtZ48Y9BArgb4AC/20140708050046711.jpg.270.jpg'
