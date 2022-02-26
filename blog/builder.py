@@ -121,7 +121,28 @@ class BlogBuilder(SteemReader):
         # write about MD files
         filename = os.path.join(folder, "{}_{}.md".format("2014-01-01", "about"))
         with open(filename, "w", encoding="utf-8") as f:
-            f.write('''# SteemBlogger
+            f.write('''---
+title: 'About SteemBlogger'
+permlink: about
+catalog: true
+toc_nav_num: true
+toc: true
+position: 9999
+date: 2014-01-01 10:18:33
+categories:
+- dtube
+tags:
+- steemblogger
+thumbnail: 'https://steemitimages.com/2048x512/https://cdn.steemitimages.com/DQmVirXX1FZkPrdCojynndRtvoyPkHqwCtZ48Y9BArgb4AC/20140708050046711.jpg.270.jpg'
+sidebar:
+    right:
+        sticky: true
+widgets:
+    -
+        type: toc
+        position: right
+---
+# SteemBlogger
 Read more at [Website](https://steemblogger.github.io/).
 ''')
 
