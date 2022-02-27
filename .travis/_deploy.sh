@@ -12,9 +12,16 @@ cp -r ../public/* ./
 if [ -d "/_posts/" ];then
   git rm -r -f --ignore-unmatch _posts/
 fi
-cp -r ../.source/* ./.source/
 ls
 NOW=$(date +"%Y-%m-%d %H:%M:%S %z")
 git add .
 git commit -m "Site updated: ${NOW}" || true
 git push -q origin master
+
+cd ../.source
+
+if [ -d .git ]; then
+  git push -q origin source
+fi
+
+cd ..
