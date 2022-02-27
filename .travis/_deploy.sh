@@ -27,7 +27,7 @@ else
   git add .
   git commit -m "Site updated: ${NOW}" || true
   git branch -M source
-  git remote add origin https://github.com/steemblogger/steemblogger.github.io.git
+  git remote add origin https://${GITHUB_PAT}@github.com/${BLOG_REPO}.git
   git push -u origin source
 fi
 
