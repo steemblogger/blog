@@ -10,6 +10,7 @@ git config --global user.name "${GIT_USERNAME}"
 
 git clone --depth 1 --branch master --single-branch https://${GITHUB_PAT}@github.com/${BLOG_REPO}.git site
 if [ -d "./site/.source/" ];then
+  mkdir .source
   cp -r ./site/.source/* ./.source/
 fi
 
