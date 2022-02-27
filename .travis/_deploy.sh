@@ -22,6 +22,13 @@ cd ../.source
 
 if [ -d .git ]; then
   git push -q origin source
+else
+  git init
+  git add .
+  git commit -m "Site updated: ${NOW}" || true
+  git branch -M source
+  git remote add origin https://github.com/steemblogger/steemblogger.github.io.git
+  git push -u origin source
 fi
 
 cd ..
