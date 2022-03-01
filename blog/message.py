@@ -56,6 +56,7 @@ FOOTERS["blog"] = """
 - - -
 
 This page is synchronized from the post: [{title}]({url})
+Powerd by [SteemBlogger](/).
 """
 
 MESSAGES['config'] = """
@@ -209,15 +210,15 @@ navbar:
 footer:
     # Links to be shown on the right of the footer section
     links:
-        Creative Commons:
-            icon: fab fa-creative-commons
-            url: 'https://creativecommons.org/'
-        Attribution 4.0 International:
-            icon: fab fa-creative-commons-by
-            url: 'https://creativecommons.org/licenses/by/4.0/'
-        # Download on GitHub:
-        #     icon: fab fa-github
-        #     url: 'http://github.com/ppoffice/hexo-theme-icarus'
+    #    Creative Commons:
+    #        icon: fab fa-creative-commons
+    #        url: 'https://creativecommons.org/'
+    #    Attribution 4.0 International:
+    #        icon: fab fa-creative-commons-by
+    #        url: 'https://creativecommons.org/licenses/by/4.0/'
+        Visit Steemblogger Github:
+            icon: fab fa-github
+            url: 'http://github.com/steemblogger'
 # Article display settings
 article:
     # Code highlight theme
@@ -304,9 +305,9 @@ widgets:
         follow_link: 'http://steemit.com/@{author}'
         # Links to be shown on the bottom of the profile widget
         social_links:
-            Github:
-                icon: fab fa-github
-                url: 'http://{organization}.github.io/@{author}'
+            #Github Open Source:
+            #    icon: fab fa-github
+            #    url: 'http://github.com/{organization}'
             Steem:
                 icon: fa fa-book
                 url: 'http://steemit.com/@{author}'
