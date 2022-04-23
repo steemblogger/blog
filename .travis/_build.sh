@@ -14,6 +14,9 @@ if [ -d "./site/.source/" ];then
   cp -r ./site/.source/* ./.source/
 fi
 
+d=`date +%Y-%m-%d`
+echo -e "RunTime: $d" >update.txt
+
 invoke blog.build-all -h github --production
 
 # if it's cron job, deploy to netlify in the same time
