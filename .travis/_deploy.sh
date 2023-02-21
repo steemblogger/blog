@@ -32,3 +32,5 @@ else
 fi
 
 cd ..
+
+exit 0
